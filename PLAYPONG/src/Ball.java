@@ -2,9 +2,9 @@ import java.awt.*;
 import java.util.Random;
 
 public class Ball extends Rectangle{
-    int xVelocity;
-    int yVelocity;
-    int initialSpeed=5;
+    int xVelocity = 20;
+    int yVelocity = 20;
+    //int initialSpeed= 30;
     Random random;
     Ball(int x,int y,int width,int height)
     {
@@ -38,15 +38,26 @@ public class Ball extends Rectangle{
 
     public void move()
     {
-        x+=xVelocity;
-        y+=yVelocity;
+        x+=xVelocity ;
+        y+=yVelocity ;
     }
     public void draw(Graphics g)
     {
-        g.setColor(Color.yellow);
+        g.setColor(Color.green);
+        //g.drawLine(1000/2,0,1000/2,555);
+        g.drawLine(500,0,500,277-150);
+
+       // g.fillRect(500-5,0,10,555);
+
+        //g.setColor(Color.YELLOW);
+        g.drawOval(500-150,277-150,300,300);
+        //g.fillOval(500-150,277-150,300,300);
+
+        g.drawLine(500,277+150,500,555);
+
+        g.setColor(Color.cyan);
         g.fillOval(x,y,width,height);
 
-        g.setColor(Color.white);
-        g.drawLine(1000/2,0,1000/2,555);
+
     }
 }

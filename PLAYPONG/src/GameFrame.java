@@ -1,16 +1,21 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class GameFrame extends JFrame {
+public class GameFrame extends JFrame  {
+
+    static private boolean start = false;
+
+
     GameFrame()
     {
         setTitle("Pong Game");
-        //setLayout(null);
-        getContentPane().setBackground(Color.black);
-        GamePanel panel=new GamePanel();
+        getContentPane().setBackground(Color.BLACK);
+        GamePanel panel = new GamePanel();
+        //panel.setMax(k);
         add(panel);
-        //setSize(1000,555);
-        //setFocusable(true);
+
         pack();
         setResizable(false);
         setVisible(true);
@@ -19,7 +24,10 @@ public class GameFrame extends JFrame {
 
 
     }
-    public static void main(String[] args) {
-        GameFrame g = new GameFrame();
+
+    public void setStart(boolean play){
+        this.start = true;
     }
+
+
 }

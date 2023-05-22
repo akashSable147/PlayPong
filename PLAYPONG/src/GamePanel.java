@@ -5,6 +5,9 @@ import java.util.Random;
 
 
 public class GamePanel extends Panel implements Runnable {
+
+    private boolean execute = true;
+
     int Width =1000;
     int Height=(int)(Width*(0.555));
     Dimension screen=new Dimension(Width,Height);
@@ -44,6 +47,14 @@ public class GamePanel extends Panel implements Runnable {
 
     }
 
+    public void setExecute(boolean a){
+        this.execute = a;
+    }
+
+    public void update(Graphics g){
+        paint(g);
+    }
+
     private void newBall() {
         Random random=new Random();
         ball=new Ball(Width/2,random.nextInt(Height-ball_diameter),ball_diameter,ball_diameter);
@@ -63,10 +74,6 @@ public class GamePanel extends Panel implements Runnable {
         g.drawImage(image,0,0,this);
 
     }
-    
-    public void update(Graphics g){
-        paint(g);
-    }
 
     private void draw(Graphics g) {
         p1.draw(g);
@@ -82,8 +89,10 @@ public class GamePanel extends Panel implements Runnable {
         double amountOfTicks=60;
         double ns=1000000000/amountOfTicks;
         double delta=0;
-        while(true)
+        while(execute)
         {
+
+
             long Now=System.nanoTime();
             delta+=(Now-lastTime)/ns;
             lastTime=Now;
