@@ -63,6 +63,10 @@ public class GamePanel extends Panel implements Runnable {
         g.drawImage(image,0,0,this);
 
     }
+    
+    public void update(Graphics g){
+        paint(g);
+    }
 
     private void draw(Graphics g) {
         p1.draw(g);
